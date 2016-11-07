@@ -1,0 +1,7 @@
+stand_app_homepage:
+    path:     /
+    defaults: { _controller: StandAppBundle:Default:index }
+
+stand_app_dashboard:
+    path:    /dashboard
+    defaults: { _controller: StandAppBundle:Default:dashboard }

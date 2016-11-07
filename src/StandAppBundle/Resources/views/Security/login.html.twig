@@ -1,0 +1,90 @@
+{% extends "::layout.html.twig" %}
+
+{% block content %}
+    
+                                            
+                                            
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="header-content">
+                        <div class="header-content-inner">
+                            <img src="{{ asset('images/logo.png') }}" />
+                            <h1>
+                                Better Ghana Agenda :: Contribute For One Touch Victory
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="device-container">
+                        <div class="device-mockup iphone6_plus portrait white">
+                            <!-- Login Form -->
+                                <!-- jQuery Validation (.js-validation-login class is initialized in js/pages/base_pages_login.js) -->
+                                <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                                
+                                <div style="padding-top:30px" class="panel-body" >
+                        {% if error %}
+                            <div id="login-alert" class="alert alert-danger col-sm-12">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                            
+                        <form id="loginform" action="{{ path("fos_user_security_check") }}" class="form-horizontal" role="form" method="post">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                        <input id="username" type="text" class="form-control" name="_username" value="{{ last_username }}" required="required" placeholder="email or phone number">                                        
+                                    </div>
+                                        
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control" name="_password" placeholder="password">
+                                    </div>
+                                    
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <input id="btn-login" class="btn btn-success" type="submit" value="Login"/>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Don't have an account! 
+                                        <a href="{{ path('fos_user_registration_register') }}" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Sign Up Here
+                                        </a>
+                                        or
+                                        <a href="{{ path('stand_app_homepage') }}" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Home page
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <div class="col-xs-12">
+
+                                            <label>
+                                                <a href='http://members.standappghana.com/home/scratch_card_donation'><img style="width: 300px; height: 120px;" src="{{ asset('images/scrach_card.png') }}" /></a>
+                                            </label>
+                                        </div>
+                                    </div>
+                            </form>     
+
+                        </div> 
+                                <!-- END Login Form -->
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
